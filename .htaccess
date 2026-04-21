@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.melopido\.shop [NC]
+RewriteRule ^(.*)$ https://melopido.shop/$1 [L,R=301]

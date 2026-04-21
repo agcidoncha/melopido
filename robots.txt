@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /copia/
+Disallow: /pdp.html
+
+Sitemap: https://www.melopido.shop/sitemap.xml
