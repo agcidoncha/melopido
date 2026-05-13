@@ -1,0 +1,20 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.melopido\.shop [NC]
+RewriteRule ^(.*)$ https://melopido.shop/$1 [L,R=301]
+
+RewriteRule ^funda-de-almohada-de-seda/?$ /funda-de-almohada-de-seda.html [L,R=301,NC]
+RewriteRule ^tienda/?$ / [L,R=301,NC]
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+
+  ExpiresByType font/woff2 "access plus 1 year"
+
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>

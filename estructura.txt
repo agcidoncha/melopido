@@ -1,0 +1,90 @@
+.
+├── avisolegal.html
+├── beneficios-funda-almohada-seda.html
+├── colores-funda-almohada-seda.html
+├── copia
+│   ├── beneficios-funda-almohada-seda.html
+│   ├── colores-funda-almohada-seda.html
+│   ├── fonts
+│   ├── funda-almohada-seda-110x45.html
+│   ├── funda-almohada-seda-120x45.html
+│   ├── funda-almohada-seda-135x45.html
+│   ├── funda-almohada-seda-150x45.html
+│   ├── funda-almohada-seda-75x50.html
+│   ├── funda-almohada-seda-90x45.html
+│   ├── funda-almohada-seda-arrugas.html
+│   ├── funda-almohada-seda-cabello.html
+│   ├── funda-de-almohada-de-seda.html
+│   ├── funda-seda-vs-algodon-saten.html
+│   ├── images
+│   │   ├── 110x45
+│   │   │   └── jpg
+│   │   ├── 120x45
+│   │   │   └── jpg
+│   │   ├── 135x45
+│   │   │   └── jpg
+│   │   ├── 150x45
+│   │   │   └── jpg
+│   │   ├── 75x50
+│   │   │   └── jpg
+│   │   ├── 90x45
+│   │   │   └── jpg
+│   │   ├── colores
+│   │   │   └── jpg
+│   │   ├── common
+│   │   │   └── jpg
+│   │   ├── contenidos
+│   │   ├── home
+│   │   ├── homemobile
+│   │   │   └── jpg
+│   │   ├── iconosuso
+│   │   ├── icons
+│   │   │   └── png
+│   │   ├── logo
+│   │   └── video
+│   ├── index.html
+│   ├── instrucciones-de-uso.html
+│   └── tallas-funda-almohada-seda.html
+├── fonts
+├── funda-almohada-seda-110x45.html
+├── funda-almohada-seda-120x45.html
+├── funda-almohada-seda-135x45.html
+├── funda-almohada-seda-150x45.html
+├── funda-almohada-seda-75x50.html
+├── funda-almohada-seda-90x45.html
+├── funda-almohada-seda-arrugas.html
+├── funda-almohada-seda-cabello.html
+├── funda-de-almohada-de-seda.html
+├── funda-seda-vs-algodon-saten.html
+├── images
+│   ├── 110x45
+│   │   └── jpg
+│   ├── 120x45
+│   │   └── jpg
+│   ├── 135x45
+│   │   └── jpg
+│   ├── 150x45
+│   │   └── jpg
+│   ├── 75x50
+│   │   └── jpg
+│   ├── 90x45
+│   │   └── jpg
+│   ├── colores
+│   │   └── jpg
+│   ├── common
+│   │   └── jpg
+│   ├── contenidos
+│   ├── home
+│   ├── homemobile
+│   │   └── jpg
+│   ├── iconosuso
+│   ├── icons
+│   │   └── png
+│   ├── logo
+│   └── video
+├── index.html
+├── instrucciones-de-uso.html
+├── pdp.html
+└── tallas-funda-almohada-seda.html
+
+56 directories, 32 files
