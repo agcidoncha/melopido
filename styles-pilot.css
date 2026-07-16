@@ -406,19 +406,73 @@
 
 /* ---------- FOOTER DESKTOP ---------- */
 .footer-desktop {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(160deg, var(--ink) 0%, var(--ink-soft) 100%);
   border-top: none;
-  padding: 64px 40px 42px;
+  padding: 72px 40px 36px;
 }
 
 .footer-desktop::before {
-  background: linear-gradient(to right, transparent, var(--gold-soft), transparent);
+  content: none;
+}
+
+.footer-desktop::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -6%;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(176, 138, 85, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.footer-desktop-container {
+  position: relative;
+  padding-bottom: 34px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-col {
+  position: relative;
+  padding-left: 34px;
+}
+
+.footer-col:first-child {
+  padding-left: 0;
+}
+
+.footer-col:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.14), transparent);
+}
+
+.footer-brand {
+  gap: 16px;
+}
+
+.footer-brand img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--accent-soft), var(--accent-deep) 78%);
+  padding: 13px;
+  box-sizing: content-box;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
 .footer-brand strong {
   color: #fbf6ee;
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: 21px;
+  letter-spacing: 0.3px;
 }
 
 .footer-sub {
@@ -426,9 +480,23 @@
 }
 
 .footer-col h4 {
+  position: relative;
+  display: inline-block;
   color: var(--gold);
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+
+.footer-col h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 22px;
+  height: 2px;
+  background: var(--gold);
 }
 
 .footer-col a {
@@ -436,12 +504,28 @@
   opacity: 1;
   position: relative;
   width: fit-content;
-  transition: color 0.2s ease;
+  padding-left: 0;
+  transition: color 0.25s ease, padding-left 0.25s ease;
+}
+
+.footer-col a::before {
+  content: "›";
+  position: absolute;
+  left: -14px;
+  opacity: 0;
+  color: var(--gold);
+  transition: opacity 0.25s ease, left 0.25s ease;
 }
 
 .footer-col a:hover {
   color: #fbf6ee;
   opacity: 1;
+  padding-left: 14px;
+}
+
+.footer-col a:hover::before {
+  opacity: 1;
+  left: 0;
 }
 
 /* ---------- MÓVIL ---------- */
