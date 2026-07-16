@@ -3121,12 +3121,12 @@ body.menu-open .mobile-menu {
 }
 
 .product-actions-divider {
-  width: 1px;
-  height: 26px;
-  background: var(--border);
+  display: none;
 }
 
 .product-link-secondary {
+  flex: 0 0 100%;
+  margin-top: 2px;
   color: var(--text);
   font-size: 14px;
   font-weight: 500;
