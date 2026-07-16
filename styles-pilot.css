@@ -404,6 +404,46 @@
   box-shadow: 0 18px 40px rgba(28, 24, 21, 0.08);
 }
 
+/* ---------- FOOTER DESKTOP ---------- */
+.footer-desktop {
+  background: linear-gradient(160deg, var(--ink) 0%, var(--ink-soft) 100%);
+  border-top: none;
+  padding: 64px 40px 42px;
+}
+
+.footer-desktop::before {
+  background: linear-gradient(to right, transparent, var(--gold-soft), transparent);
+}
+
+.footer-brand strong {
+  color: #fbf6ee;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+}
+
+.footer-sub {
+  color: #a89e93;
+}
+
+.footer-col h4 {
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.footer-col a {
+  color: #d9d0c5;
+  opacity: 1;
+  position: relative;
+  width: fit-content;
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+  color: #fbf6ee;
+  opacity: 1;
+}
+
 /* ---------- MÓVIL ---------- */
 @media (max-width: 768px) {
   .hero-home {
