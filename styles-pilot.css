@@ -28,6 +28,24 @@
   color: #fff;
 }
 
+/* enlaces en texto de cuerpo: reemplaza el azul por defecto del navegador
+   en cualquier <a> dentro de un párrafo de contenido */
+.content-text-box p a,
+.hero-content-text a,
+.content-card p a,
+.usage-care-card p a {
+  color: var(--accent-deep);
+  text-decoration-color: var(--gold-soft);
+}
+
+.content-text-box p a:hover,
+.hero-content-text a:hover,
+.content-card p a:hover,
+.usage-care-card p a:hover {
+  color: var(--ink);
+  text-decoration-color: var(--ink);
+}
+
 /* ---------- HEADER ---------- */
 .header {
   background: rgba(247, 241, 232, 0.86);
@@ -44,12 +62,12 @@
   letter-spacing: 0.8px;
 }
 
-/* ---------- HERO ---------- */
+/* ---------- HERO (home, con foto de fondo) ---------- */
 .hero-home {
   min-height: 92vh;
 }
 
-.hero::before {
+.hero-home::before {
   background: linear-gradient(105deg,
       rgba(28, 24, 21, 0.82) 0%,
       rgba(28, 24, 21, 0.62) 32%,
@@ -57,7 +75,7 @@
       rgba(28, 24, 21, 0) 74%);
 }
 
-.hero-bg {
+.hero-home .hero-bg {
   transform: scale(1.06);
   animation: pilot-kenburns 16s ease-in-out infinite alternate;
 }
@@ -72,7 +90,7 @@
   }
 }
 
-.hero-kicker {
+.hero-home .hero-kicker {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -82,7 +100,7 @@
   letter-spacing: 2.5px;
 }
 
-.hero-kicker::before {
+.hero-home .hero-kicker::before {
   content: "";
   display: inline-block;
   width: 34px;
@@ -90,31 +108,55 @@
   background: var(--gold);
 }
 
-.hero h1 {
+.hero-home h1 {
   font-size: 88px;
   letter-spacing: -0.02em;
   color: #fdfaf5;
   text-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
 }
 
-.hero-highlight {
+.hero-home .hero-highlight {
   color: var(--accent-soft);
   font-weight: 500;
   font-family: 'Playfair Display', serif;
   font-style: italic;
 }
 
-.hero-icons {
+.hero-home .hero-icons {
   gap: 26px;
 }
 
-.hero-icon-item {
+.hero-home .hero-icon-item {
   color: #f3ece2;
 }
 
-.hero-icon {
+.hero-home .hero-icon {
   border: 1px solid rgba(243, 228, 200, 0.35);
   background: rgba(255, 255, 255, 0.06);
+}
+
+/* ---------- HERO (páginas de contenido, sin foto de fondo) ---------- */
+.hero-content-title {
+  font-size: 54px;
+  letter-spacing: -0.01em;
+  line-height: 1.04;
+  color: var(--ink);
+}
+
+.hero-content-sub {
+  color: var(--accent-deep);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.hero-content-text {
+  color: var(--text);
+}
+
+.hero-content-img {
+  box-shadow: 0 30px 60px rgba(28, 24, 21, 0.14);
 }
 
 .btn-round {
@@ -255,6 +297,111 @@
 .home-seo-link .btn-round:hover {
   background: #fbf6ee;
   color: var(--ink);
+}
+
+/* ---------- CUADRO DE TEXTO PRINCIPAL (contenido + legales) ---------- */
+.content-text-box {
+  background: #fffdfa;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(28, 24, 21, 0.08);
+  position: relative;
+}
+
+.content-text-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 40px;
+  right: 40px;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent 70%);
+}
+
+.content-text-box h1,
+.content-text-box h2 {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.legal-page .content-text-box h2 {
+  font-size: 20px;
+}
+
+/* ---------- TARJETAS DE CONTENIDO RELACIONADO ---------- */
+.content-card {
+  background: #fffdfa;
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(28, 24, 21, 0.12);
+}
+
+.content-card:hover::after {
+  transform: scaleX(1);
+}
+
+.content-card h3 {
+  font-weight: 500;
+}
+
+/* ---------- PÁGINA DE COLORES ---------- */
+.colors-showcase-title {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.color-card {
+  background: #fffdfa;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.color-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(28, 24, 21, 0.1);
+  border-color: var(--gold-soft);
+}
+
+.color-card h3 {
+  font-weight: 500;
+}
+
+/* ---------- INSTRUCCIONES DE USO ---------- */
+.usage-care-title {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.usage-care-card {
+  background: #fffdfa;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.usage-care-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(28, 24, 21, 0.08);
 }
 
 /* ---------- MÓVIL ---------- */
