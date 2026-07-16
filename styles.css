@@ -3091,11 +3091,17 @@ body.menu-open .mobile-menu {
 
 .product-btn {
   gap: 8px;
+  white-space: nowrap;
 }
 
 .product-btn img,
 .product-btn svg {
   flex: 0 0 auto;
+}
+
+.product-actions {
+  flex-wrap: wrap;
+  row-gap: 12px;
 }
 
 /* Botón "Comprar": rosa Melopido en vez del estilo secundario neutro */
