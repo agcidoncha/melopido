@@ -1188,7 +1188,7 @@ body.menu-open .mobile-menu {
   background: #f4efe8;
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: 34px 38px;
+  padding: 34px 15px;
 }
 
 .content-text-box h2 {
@@ -1851,7 +1851,7 @@ body.menu-open .mobile-menu {
   }
 
   .product {
-    padding: 90px 20px 75px;
+    padding: 90px 10px 75px;
   }
 
 
@@ -3142,7 +3142,7 @@ body.menu-open .mobile-menu {
   }
 
   .product-container {
-    padding: 20px;
+    padding: 20px 10px;
     border-radius: 22px;
   }
 
