@@ -599,6 +599,27 @@
   font-weight: 600;
 }
 
+.product-btn {
+  gap: 8px;
+}
+
+.product-btn img,
+.product-btn svg {
+  flex: 0 0 auto;
+}
+
+/* Botón "Comprar": rosa Melopido en vez del estilo secundario neutro */
+.product-btn-guide.js-amazon-link {
+  background: var(--accent-deep);
+  color: #fff;
+  border: none;
+  transition: background 0.2s ease;
+}
+
+.product-btn-guide.js-amazon-link:hover {
+  background: var(--dark);
+}
+
 /* ---------- MÓVIL ---------- */
 @media (max-width: 768px) {
   .hero-home {
