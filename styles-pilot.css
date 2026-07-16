@@ -412,10 +412,23 @@
   margin: 0 auto;
   background: #fffdfb;
   border: 1px solid var(--border);
-  border-top: none;
-  border-radius: 0 0 28px 28px;
+  border-radius: 28px;
   padding: 36px 48px 32px;
   box-shadow: 0 20px 50px rgba(58, 52, 49, 0.06);
+}
+
+.footer-desktop {
+  padding-top: 40px;
+}
+
+/* En la home, el footer se une sin costura al bloque de guía SEO de arriba */
+body.home-page .footer-desktop {
+  padding-top: 0;
+}
+
+body.home-page .footer-desktop-container {
+  border-top: none;
+  border-radius: 0 0 28px 28px;
 }
 
 .footer-col {
