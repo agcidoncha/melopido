@@ -163,7 +163,7 @@ if (heroTitle && heroSub && heroBg1 && heroBg2) {
 
 // PRODUCTO
 const colors = document.querySelectorAll(".product-colors span");
-const amazonLink = document.getElementById("amazon-link");
+const amazonLinkEls = document.querySelectorAll("#amazon-link, .js-amazon-link");
 const selectedColorTextDesktop = document.getElementById(
   "selected-color-desktop",
 );
@@ -311,7 +311,7 @@ function isValidAmazonLink(url) {
   return trimmed !== "#" && trimmed.toUpperCase() !== "PENDIENTE";
 }
 
-if (colors.length && amazonLink) {
+if (colors.length && amazonLinkEls.length) {
   // desactivar colores sin link
   colors.forEach((color) => {
     const colorName = color.dataset.color;
@@ -357,7 +357,9 @@ if (colors.length && amazonLink) {
     }
 
     if (currentAmazonLinks[selectedColor]) {
-      amazonLink.href = currentAmazonLinks[selectedColor];
+      amazonLinkEls.forEach((el) => {
+        el.href = currentAmazonLinks[selectedColor];
+      });
     }
 
     if (selectedColorTextDesktop) {
@@ -393,7 +395,9 @@ if (colors.length && amazonLink) {
       }
 
       if (currentAmazonLinks[selectedColor]) {
-        amazonLink.href = currentAmazonLinks[selectedColor];
+        amazonLinkEls.forEach((el) => {
+          el.href = currentAmazonLinks[selectedColor];
+        });
       }
 
       if (selectedColorTextDesktop) {
