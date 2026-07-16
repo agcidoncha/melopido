@@ -305,15 +305,18 @@ function changeImage(newSrc, newAlt) {
   }, 100);
 }
 
+function isValidAmazonLink(url) {
+  if (!url) return false;
+  const trimmed = url.trim();
+  return trimmed !== "#" && trimmed.toUpperCase() !== "PENDIENTE";
+}
+
 if (colors.length && amazonLink) {
   // desactivar colores sin link
   colors.forEach((color) => {
     const colorName = color.dataset.color;
 
-    if (
-      !currentAmazonLinks[colorName] ||
-      currentAmazonLinks[colorName].trim() === "#"
-    ) {
+    if (!isValidAmazonLink(currentAmazonLinks[colorName])) {
       color.classList.add("disabled");
     }
   });
@@ -323,16 +326,13 @@ if (colors.length && amazonLink) {
 
   if (
     activeColor &&
-    (!currentAmazonLinks[activeColor.dataset.color] ||
-      currentAmazonLinks[activeColor.dataset.color].trim() === "#")
+    !isValidAmazonLink(currentAmazonLinks[activeColor.dataset.color])
   ) {
     activeColor.classList.remove("active");
 
     const firstAvailable = Array.from(colors).find((color) => {
       const name = color.dataset.color;
-      return (
-        currentAmazonLinks[name] && currentAmazonLinks[name].trim() !== "#"
-      );
+      return isValidAmazonLink(currentAmazonLinks[name]);
     });
 
     if (firstAvailable) {
