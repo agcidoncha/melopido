@@ -3124,12 +3124,16 @@ body.menu-open .mobile-menu {
   display: none;
 }
 
-.product-link-secondary {
+.product-actions-note {
   flex: 0 0 100%;
-  margin-top: 2px;
-  color: var(--text);
+  margin: 2px 0 0;
   font-size: 14px;
-  font-weight: 500;
+  color: var(--text);
+}
+
+.product-link-secondary {
+  color: var(--accent-deep);
+  font-weight: 600;
   text-decoration: underline;
   text-decoration-color: var(--border);
   text-underline-offset: 3px;
