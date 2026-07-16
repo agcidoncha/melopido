@@ -3179,3 +3179,49 @@ body.menu-open .mobile-menu {
     font-size: 27px;
   }
 }
+
+/* ---------- BARRA FIJA DE COMPRA EN MÓVIL (páginas de producto) ---------- */
+.product-sticky-cta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .product-sticky-cta {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 70px;
+    z-index: 999;
+    gap: 10px;
+    padding: 10px 16px;
+    background: rgba(248, 243, 238, 0.94);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border);
+  }
+
+  .product-sticky-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .product-sticky-amazon {
+    background: #f39200;
+    color: #fff;
+  }
+
+  .product-sticky-melopido {
+    background: var(--accent-deep);
+    color: #fff;
+  }
+}
