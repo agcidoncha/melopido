@@ -507,6 +507,7 @@
 
 /* ---------- PÁGINA DE PRODUCTO ---------- */
 .product-container {
+  max-width: 1120px;
   background: #fffdfb;
   border: 1px solid var(--border);
   border-radius: 28px;
