@@ -3186,15 +3186,24 @@ body.menu-open .mobile-menu {
 }
 
 @media (max-width: 768px) {
+  body.product-page .footer-mobile {
+    display: none;
+  }
+
+  body.product-page {
+    padding-bottom: 0;
+  }
+
   .product-sticky-cta {
     display: flex;
     position: fixed;
     left: 0;
     right: 0;
-    bottom: 70px;
+    bottom: 0;
     z-index: 999;
     gap: 10px;
     padding: 10px 16px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
     background: rgba(248, 243, 238, 0.94);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
