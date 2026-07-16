@@ -516,7 +516,7 @@
 }
 
 .product-gallery {
-  background: var(--card);
+  background: #ffffff;
   border: 1px solid var(--border);
 }
 
