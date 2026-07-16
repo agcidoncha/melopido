@@ -1,0 +1,26 @@
+:root{
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 18px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 60px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  --shadow-card-hover: 0 12px 30px rgba(0,0,0,0.08);
+  --shadow-amazon-btn: 0 6px 16px var(--amazon-shadow);
+  --shadow-modal: 0 24px 60px rgba(0,0,0,0.35);
+  --shadow-submenu: 0 8px 20px rgba(0,0,0,0.08);
+
+  --ease-menu: cubic-bezier(0.77,0,0.175,1); /* @kind other */
+  --duration-fast: 0.2s; /* @kind other */
+  --duration-menu: 0.35s; /* @kind other */
+  --duration-fade: 0.5s; /* @kind other */
+  --duration-hero-bg: 1.2s; /* @kind other */
+}

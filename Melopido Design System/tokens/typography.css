@@ -1,0 +1,22 @@
+@font-face{font-family:'Montserrat';src:url('../assets/fonts/Montserrat-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('../assets/fonts/Montserrat-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('../assets/fonts/Montserrat-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Playfair Display';src:url('../assets/fonts/PlayfairDisplay-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Pontiac';src:url('../assets/fonts/Fontspring-DEMO-pontiac_bold.woff2') format('woff2');font-weight:700;font-display:swap}
+:root{
+  --font-body: 'Montserrat', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  --font-wordmark: 'Pontiac', serif;
+  --text-hero: 76px;
+  --text-h1: 42px;
+  --text-h2: 34px;
+  --text-h3: 28px;
+  --text-lead: 18px;
+  --text-body: 15px;
+  --text-small: 13px;
+  --text-micro: 11px;
+  --leading-tight: 0.93;
+  --leading-snug: 1.1;
+  --leading-normal: 1.55;
+  --tracking-wide: 1px;
+}

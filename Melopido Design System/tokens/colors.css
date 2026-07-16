@@ -1,0 +1,34 @@
+:root{
+  /* base */
+  --bg: #f8f4ef;
+  --surface-card: #f4efe8;
+  --surface-white: #ffffff;
+  --border: #e7ddd2;
+  --border-footer: #e2d6c9;
+  --divider: #d8cbbd;
+
+  /* text */
+  --text: #57524f;
+  --text-muted-1: #66605c;
+  --text-muted-2: #7a736d;
+  --text-muted-3: #8a817c;
+  --dark: #1f1f1f;
+
+  /* accent (brand pink) */
+  --accent: #dd8f91;
+  --accent-strong: #e07a7a;
+  --accent-soft: #f5a9aa;
+
+  /* semantic */
+  --amazon: #f39200;
+  --amazon-shadow: rgba(243, 146, 0, 0.25);
+
+  /* product color swatches */
+  --color-marfil: #f3efec;
+  --color-azul-pavoreal: #037095;
+  --color-topo: #b29d8f;
+  --color-granate: #981414;
+  --color-grisazulado: #86919f;
+  --color-azulnavy: #0c255d;
+  --color-negro: #000000;
+}

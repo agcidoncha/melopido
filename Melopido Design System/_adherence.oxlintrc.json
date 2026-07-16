@@ -1,0 +1,251 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/commerce/ColorSwatch/**",
+              "components/commerce/FeatureIcon/**",
+              "components/commerce/SizeCard/**",
+              "components/content/CareCard/**",
+              "components/content/ContentCard/**",
+              "components/core/Button/**",
+              "components/layout/FooterDesktop/**",
+              "components/layout/Header/**",
+              "ui_kits/website/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Montserrat|Playfair Display|Pontiac))/i]",
+        "message": "Font not provided by the design system. Available: Montserrat, Playfair Display, Pontiac."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|href|children|arrow|disabled|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, href, children, arrow, disabled."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:round|light|primary|amazon|guide)$/]",
+        "message": "<Button> variant must be one of 'round' | 'light' | 'primary' | 'amazon' | 'guide'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CareCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|label|key|ref|className|style|children)$/]",
+        "message": "<CareCard> doesn't accept that prop. Declared props: icon, label."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ColorSwatch'] > JSXAttribute > JSXIdentifier[name!=/^(?:color|active|disabled|size|onClick|key|ref|className|style|children)$/]",
+        "message": "<ColorSwatch> doesn't accept that prop. Declared props: color, active, disabled, size, onClick."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ContentCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|children|href|key|ref|className|style|children)$/]",
+        "message": "<ContentCard> doesn't accept that prop. Declared props: title, children, href."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FeatureIcon'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|label|key|ref|className|style|children)$/]",
+        "message": "<FeatureIcon> doesn't accept that prop. Declared props: icon, label."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FooterDesktop'] > JSXAttribute > JSXIdentifier[name!=/^(?:logo|key|ref|className|style|children)$/]",
+        "message": "<FooterDesktop> doesn't accept that prop. Declared props: logo."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Header'] > JSXAttribute > JSXIdentifier[name!=/^(?:logo|claim|claimSub|key|ref|className|style|children)$/]",
+        "message": "<Header> doesn't accept that prop. Declared props: logo, claim, claimSub."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SizeCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|dimensions|href|key|ref|className|style|children)$/]",
+        "message": "<SizeCard> doesn't accept that prop. Declared props: label, dimensions, href."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "CareCard": {
+        "replaces": []
+      },
+      "ColorSwatch": {
+        "replaces": []
+      },
+      "ContentCard": {
+        "replaces": []
+      },
+      "FeatureIcon": {
+        "replaces": []
+      },
+      "FooterDesktop": {
+        "replaces": []
+      },
+      "Header": {
+        "replaces": []
+      },
+      "SizeCard": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent",
+      "--accent-soft",
+      "--accent-strong",
+      "--amazon",
+      "--amazon-shadow",
+      "--bg",
+      "--border",
+      "--border-footer",
+      "--color-azul-pavoreal",
+      "--color-azulnavy",
+      "--color-granate",
+      "--color-grisazulado",
+      "--color-marfil",
+      "--color-negro",
+      "--color-topo",
+      "--dark",
+      "--divider",
+      "--duration-fade",
+      "--duration-fast",
+      "--duration-hero-bg",
+      "--duration-menu",
+      "--ease-menu",
+      "--font-body",
+      "--font-display",
+      "--font-wordmark",
+      "--leading-normal",
+      "--leading-snug",
+      "--leading-tight",
+      "--radius-circle",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--radius-xl",
+      "--shadow-amazon-btn",
+      "--shadow-card-hover",
+      "--shadow-modal",
+      "--shadow-submenu",
+      "--space-2xl",
+      "--space-lg",
+      "--space-md",
+      "--space-sm",
+      "--space-xl",
+      "--space-xs",
+      "--surface-card",
+      "--surface-white",
+      "--text",
+      "--text-body",
+      "--text-h1",
+      "--text-h2",
+      "--text-h3",
+      "--text-hero",
+      "--text-lead",
+      "--text-micro",
+      "--text-muted-1",
+      "--text-muted-2",
+      "--text-muted-3",
+      "--text-small",
+      "--tracking-wide"
+    ],
+    "tokenKinds": {
+      "--bg": "color",
+      "--surface-card": "color",
+      "--surface-white": "color",
+      "--border": "color",
+      "--border-footer": "color",
+      "--divider": "color",
+      "--text": "font",
+      "--text-muted-1": "font",
+      "--text-muted-2": "font",
+      "--text-muted-3": "font",
+      "--dark": "color",
+      "--accent": "color",
+      "--accent-strong": "color",
+      "--accent-soft": "color",
+      "--amazon": "color",
+      "--amazon-shadow": "shadow",
+      "--color-marfil": "color",
+      "--color-azul-pavoreal": "color",
+      "--color-topo": "color",
+      "--color-granate": "color",
+      "--color-grisazulado": "color",
+      "--color-azulnavy": "color",
+      "--color-negro": "color",
+      "--font-body": "font",
+      "--font-display": "font",
+      "--font-wordmark": "font",
+      "--text-hero": "font",
+      "--text-h1": "font",
+      "--text-h2": "font",
+      "--text-h3": "font",
+      "--text-lead": "font",
+      "--text-body": "font",
+      "--text-small": "font",
+      "--text-micro": "font",
+      "--leading-tight": "font",
+      "--leading-snug": "font",
+      "--leading-normal": "font",
+      "--tracking-wide": "font",
+      "--space-xs": "spacing",
+      "--space-sm": "spacing",
+      "--space-md": "spacing",
+      "--space-lg": "spacing",
+      "--space-xl": "spacing",
+      "--space-2xl": "spacing",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-xl": "radius",
+      "--radius-pill": "radius",
+      "--radius-circle": "radius",
+      "--shadow-card-hover": "shadow",
+      "--shadow-amazon-btn": "shadow",
+      "--shadow-modal": "shadow",
+      "--shadow-submenu": "shadow",
+      "--ease-menu": "other",
+      "--duration-fast": "other",
+      "--duration-menu": "other",
+      "--duration-fade": "other",
+      "--duration-hero-bg": "other"
+    },
+    "fontFamilies": [
+      "Montserrat",
+      "Playfair Display",
+      "Pontiac"
+    ]
+  }
+}

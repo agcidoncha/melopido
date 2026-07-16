@@ -1,0 +1,286 @@
+/* ==========================================================================
+   PILOTO DE REDISEÑO — solo cargado por index.html
+   Cascada sobre styles.css: solo sobrescribe apariencia (color, tipografía,
+   espaciado, sombras). No redefine ninguna clase que use script.js para
+   lógica (menús, hero-bg, video modal): esas siguen intactas por debajo.
+   ========================================================================== */
+
+:root {
+  /* paleta elevada — misma familia de marca (crema + rosa empolvado),
+     con un ancla oscura cálida y un filo dorado para el acabado premium */
+  --bg: #f7f1e8;
+  --card: #f2eade;
+  --border: #e4d5c2;
+  --text: #55504c;
+  --dark: #211c19;
+
+  --ink: #1c1815;
+  --ink-soft: #2a2320;
+  --accent: #c9807c;
+  --accent-deep: #a85f5f;
+  --accent-soft: #e9b9ae;
+  --gold: #b08a55;
+  --gold-soft: rgba(176, 138, 85, 0.35);
+}
+
+::selection {
+  background: var(--accent-deep);
+  color: #fff;
+}
+
+/* ---------- HEADER ---------- */
+.header {
+  background: rgba(247, 241, 232, 0.86);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid rgba(176, 138, 85, 0.18);
+}
+
+.brand-name {
+  letter-spacing: 1.5px;
+}
+
+.header-claim-text {
+  letter-spacing: 0.8px;
+}
+
+/* ---------- HERO ---------- */
+.hero-home {
+  min-height: 92vh;
+}
+
+.hero::before {
+  background: linear-gradient(105deg,
+      rgba(28, 24, 21, 0.82) 0%,
+      rgba(28, 24, 21, 0.62) 32%,
+      rgba(28, 24, 21, 0.22) 56%,
+      rgba(28, 24, 21, 0) 74%);
+}
+
+.hero-bg {
+  transform: scale(1.06);
+  animation: pilot-kenburns 16s ease-in-out infinite alternate;
+}
+
+@keyframes pilot-kenburns {
+  from {
+    transform: scale(1.06);
+  }
+
+  to {
+    transform: scale(1.14);
+  }
+}
+
+.hero-kicker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #f3e4c8;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+}
+
+.hero-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 34px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero h1 {
+  font-size: 88px;
+  letter-spacing: -0.02em;
+  color: #fdfaf5;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
+}
+
+.hero-highlight {
+  color: var(--accent-soft);
+  font-weight: 500;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+.hero-icons {
+  gap: 26px;
+}
+
+.hero-icon-item {
+  color: #f3ece2;
+}
+
+.hero-icon {
+  border: 1px solid rgba(243, 228, 200, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-round {
+  background: var(--accent-deep);
+  padding: 19px 32px;
+  box-shadow: 0 14px 34px rgba(168, 95, 95, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn-round:hover {
+  transform: translateY(-2px);
+  background: var(--ink);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
+}
+
+.btn-round .arrow {
+  transition: transform 0.25s ease;
+}
+
+.btn-round:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* ---------- SIZES ---------- */
+.sizes-home {
+  margin-top: -140px;
+}
+
+.sizes-box {
+  background: #fffdfa;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: 0 30px 70px rgba(28, 24, 21, 0.12);
+  padding: 46px 52px 38px;
+}
+
+.sizes-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.size-card {
+  position: relative;
+  border-radius: 16px;
+  border-color: var(--border);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.size-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.size-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(28, 24, 21, 0.1);
+  border-color: transparent;
+}
+
+.size-card:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+.size-card strong {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.sizes-benefits span {
+  letter-spacing: 0.5px;
+}
+
+.sizes-benefits span::before {
+  color: var(--gold);
+}
+
+/* ---------- BLOQUE SEO / GUÍA ---------- */
+.home-seo-link {
+  padding-top: 10px;
+}
+
+.home-seo-link .container {
+  background: linear-gradient(150deg, var(--ink) 0%, var(--ink-soft) 100%);
+  border: none;
+  border-radius: 28px;
+  padding: 64px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-seo-link .container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 85% 15%, rgba(176, 138, 85, 0.18), transparent 55%);
+  pointer-events: none;
+}
+
+.home-seo-link h2 {
+  color: #fbf6ee;
+  font-size: 38px;
+  font-weight: 500;
+  position: relative;
+}
+
+.home-seo-link p {
+  color: #cfc6ba;
+  position: relative;
+}
+
+.home-seo-link p a {
+  color: var(--gold);
+  text-decoration-color: var(--gold-soft);
+}
+
+.home-seo-link p a:hover {
+  color: #fbf6ee;
+  text-decoration-color: #fbf6ee;
+}
+
+.home-seo-link .btn-round {
+  position: relative;
+  background: var(--gold);
+  box-shadow: 0 14px 34px rgba(176, 138, 85, 0.3);
+}
+
+.home-seo-link .btn-round:hover {
+  background: #fbf6ee;
+  color: var(--ink);
+}
+
+/* ---------- MÓVIL ---------- */
+@media (max-width: 768px) {
+  .hero-home {
+    min-height: 88vh;
+  }
+
+  .sizes-home {
+    margin-top: -60px;
+  }
+
+  .sizes-box {
+    padding: 24px 18px;
+    border-radius: 22px;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+  }
+
+  .home-seo-link .container {
+    padding: 34px 22px;
+  }
+
+  .home-seo-link h2 {
+    font-size: 27px;
+  }
+}

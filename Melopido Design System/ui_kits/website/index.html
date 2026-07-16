@@ -1,0 +1,47 @@
+<!-- @dsCard group="Website" viewport="1280x820" name="Melopido — Website" subtitle="Click-through: home, product (color picker), colors, content guide" -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0}</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="Home.jsx"></script>
+<script type="text/babel" src="Product.jsx"></script>
+<script type="text/babel" src="Colors.jsx"></script>
+<script type="text/babel" src="Content.jsx"></script>
+<script type="text/babel">
+const { Header, FooterDesktop } = window.MelopidoDesignSystem_6a8326;
+
+function Shell() {
+  const [view, setView] = React.useState('home');
+  const [size, setSize] = React.useState('90x45');
+  const nav = (v, s) => { setView(v); if (s) setSize(s); window.scrollTo(0, 0); };
+
+  const navLink = (label, key) => React.createElement('a', {
+    href: '#', onClick: (e) => { e.preventDefault(); nav(key); },
+    style: { textDecoration: 'none', color: view === key ? 'var(--accent-strong)' : 'var(--dark)', fontSize: 14, fontWeight: 600, padding: '8px 4px' }
+  }, label);
+
+  return React.createElement('div', { style: { background: 'var(--bg)', minHeight: '100vh' } },
+    React.createElement('div', { style: { display: 'flex', justifyContent: 'center', gap: 24, padding: '14px 20px', borderBottom: '1px solid var(--border)', background: '#fff' } },
+      navLink('Inicio', 'home'), navLink('Producto', 'product'), navLink('Colores', 'colors'), navLink('Guía', 'content')
+    ),
+    React.createElement(Header, { logo: '../../assets/logo.png' }),
+    view === 'home' && React.createElement(window.Home, { nav }),
+    view === 'product' && React.createElement(window.Product, { size }),
+    view === 'colors' && React.createElement(window.Colors, null),
+    view === 'content' && React.createElement(window.Content, null),
+    React.createElement(FooterDesktop, { logo: '../../assets/logo.png' })
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(Shell));
+</script>
+</body>
+</html>
