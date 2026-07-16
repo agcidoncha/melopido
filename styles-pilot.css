@@ -251,20 +251,12 @@
 }
 
 .home-seo-link .container {
-  background: linear-gradient(150deg, var(--panel-soft) 0%, var(--panel) 100%);
+  background: #fffdfb;
   border: 1px solid var(--border);
   border-radius: 28px;
   padding: 60px 48px;
   position: relative;
-  overflow: hidden;
-}
-
-.home-seo-link .container::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 85% 15%, rgba(201, 214, 196, 0.4), transparent 55%);
-  pointer-events: none;
+  box-shadow: 0 20px 50px rgba(58, 52, 49, 0.06);
 }
 
 .home-seo-link h2 {
@@ -425,41 +417,34 @@
 
 .footer-desktop-container {
   position: relative;
-  padding-bottom: 32px;
-  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 56px;
 }
 
 .footer-col {
   position: relative;
-  padding-left: 34px;
 }
 
 .footer-col:first-child {
-  padding-left: 0;
+  flex: 1 1 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
 }
 
-.footer-col:not(:first-child)::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 4px;
-  bottom: 4px;
-  width: 1px;
-  background: var(--border);
+.footer-col:not(:first-child) {
+  flex: 1 1 160px;
 }
 
 .footer-brand {
-  gap: 16px;
+  gap: 14px;
 }
 
 .footer-brand img {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, var(--accent-soft), var(--accent-deep) 78%);
-  padding: 13px;
-  box-sizing: content-box;
-  box-shadow: 0 8px 18px rgba(193, 125, 122, 0.3);
+  width: 30px;
 }
 
 .footer-brand strong {
@@ -475,21 +460,20 @@
 
 .footer-col h4 {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: var(--dark);
   font-weight: 600;
-  letter-spacing: 1.5px;
-  padding-bottom: 14px;
-  margin-bottom: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
 }
 
-.footer-col h4::after {
+.footer-col h4::before {
   content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 22px;
-  height: 2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
   background: var(--accent);
 }
 
