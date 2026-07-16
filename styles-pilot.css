@@ -247,16 +247,17 @@
 
 /* ---------- BLOQUE SEO / GUÍA ---------- */
 .home-seo-link {
-  padding-top: 10px;
+  padding: 10px 40px 0;
 }
 
 .home-seo-link .container {
   background: #fffdfb;
   border: 1px solid var(--border);
-  border-radius: 28px;
-  padding: 60px 48px;
+  border-bottom: none;
+  border-radius: 28px 28px 0 0;
+  max-width: 1120px;
+  padding: 60px 48px 40px;
   position: relative;
-  box-shadow: 0 20px 50px rgba(58, 52, 49, 0.06);
 }
 
 .home-seo-link h2 {
@@ -393,26 +394,13 @@
 /* ---------- FOOTER DESKTOP ---------- */
 .footer-desktop {
   position: relative;
-  overflow: hidden;
-  background: linear-gradient(160deg, var(--panel-soft) 0%, var(--card) 100%);
+  background: transparent;
   border-top: none;
-  padding: 68px 40px 36px;
+  padding: 0 40px 40px;
 }
 
 .footer-desktop::before {
   content: none;
-}
-
-.footer-desktop::after {
-  content: "";
-  position: absolute;
-  top: -25%;
-  right: -8%;
-  width: 460px;
-  height: 460px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 214, 196, 0.35), transparent 70%);
-  pointer-events: none;
 }
 
 .footer-desktop-container {
@@ -420,6 +408,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px 56px;
+  max-width: 1120px;
+  margin: 0 auto;
+  background: #fffdfb;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 28px 28px;
+  padding: 36px 48px 32px;
+  box-shadow: 0 20px 50px rgba(58, 52, 49, 0.06);
 }
 
 .footer-col {
