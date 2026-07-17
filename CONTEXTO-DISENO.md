@@ -4,7 +4,7 @@ Web SEO de fundas de almohada de seda de morera. HTML/CSS/JS estático, sin buil
 
 Repositorio: [github.com/agcidoncha/melopido](https://github.com/agcidoncha/melopido) (rama `main`). Titular del sitio: MEPERMO S.L.
 
-**Estado**: el rediseño (ver más abajo) ya está terminado en local y subido al repositorio de GitHub. **Todavía no se ha subido al servidor real (melopido.shop sigue con el diseño antiguo).**
+**Estado**: el rediseño (ver más abajo) está terminado, subido al repositorio de GitHub, y **ya desplegado en el servidor real (melopido.shop)**. Cada cambio nuevo hay que subirlo también a producción por FTP — la carpeta hermana `../melopido-listo-para-subir` (fuera de este repo) se mantiene como copia exacta lista para subir, sin archivos de desarrollo (excluye `.git`, `Melopido Design System`, `CONTEXTO-DISENO.md`, `estructura.txt`, `.DS_Store`).
 
 ## Lo que NO se puede tocar sin autorización
 
@@ -30,11 +30,11 @@ Repositorio: [github.com/agcidoncha/melopido](https://github.com/agcidoncha/melo
 - **Footer**: fondo claro, marca en fila superior con línea separadora, 3 grupos de enlaces (Fundas/Información/Más) en fila con los enlaces en línea junto al título (no apilados, no en columnas rígidas).
 - **Cards**: todos los bloques (hero de contenido, guía SEO, footer, producto) usan tarjetas redondeadas de `1120px` de ancho máximo, mismo ancho entre sí para que todo quede alineado.
 - **Responsive**: un único breakpoint `@media (max-width: 768px)`.
-- **Caché**: `styles.css` y `script.js` se referencian con `?v=1` en las 17 páginas — **cada vez que se modifique cualquiera de los dos archivos, hay que subir ese número (`v=2`, `v=3`...) en las 17 páginas** para que a los visitantes no se les quede la versión vieja cacheada (el `.htaccess` real cachea `.js`/`.css` durante bastante tiempo).
+- **Caché**: `styles.css` y `script.js` se referencian con `?v=N` en las 17 páginas (actualmente `v=7`) — **cada vez que se modifique cualquiera de los dos archivos, hay que subir ese número (`v=8`, `v=9`...) en las 17 páginas** para que a los visitantes no se les quede la versión vieja cacheada (el `.htaccess` real cachea `.js`/`.css` durante bastante tiempo).
 
 ## Pendiente
 
-- **Subir el rediseño al servidor real** (hoy solo está en local + GitHub).
-- **Venta directa**: plan acordado = Stripe Checkout + función backend mínima (ver detalle en `project_venta_directa_melopido.md`, memoria de Claude). Falta: (1) definir precio por talla, (2) conectar herramienta de facturación/Verifactu (lo gestiona el usuario mismo, no necesita asesoría externa).
+- **Venta directa**: plan acordado = Stripe Checkout + función backend mínima (ver detalle en `project_venta_directa_melopido.md`, memoria de Claude). Falta: (1) definir precio por talla, (2) **decidir dónde alojar la función backend** — el hosting compartido actual (Apache/FTP) no ejecuta Node, así que hace falta un servicio aparte tipo Vercel, Netlify o Cloudflare Workers (gratis en los tramos bajos de uso), (3) conectar herramienta de facturación/Verifactu (lo gestiona el usuario mismo, no necesita asesoría externa).
+- **Después de cada subida a producción**: recordar volver a sincronizar la carpeta `../melopido-listo-para-subir` y subir por FTP los archivos que hayan cambiado.
 - Limpieza de imágenes: ya se hizo (se quitaron los `.psd` y los JPG a resolución completa sin usar, ~350 MB en total). No queda peso muerto conocido en `images/`.
 - URLs antiguas de WordPress (joyería) indexadas: ya resuelto por el usuario con redirecciones 301 reales en el `.htaccess` del servidor.
