@@ -3234,3 +3234,12 @@ body.menu-open .mobile-menu {
     color: #fff;
   }
 }
+
+/* ---------- PRECIO DE PRODUCTO ---------- */
+.product-price {
+  margin: 4px 0 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--accent-deep);
+}
