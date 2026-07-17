@@ -2524,7 +2524,8 @@ body.menu-open .mobile-menu {
 .content-text-box p a,
 .hero-content-text a,
 .content-card p a,
-.usage-care-card p a {
+.usage-care-card p a,
+.product-info p a {
   color: var(--accent-deep);
   text-decoration-color: var(--accent-soft);
 }
@@ -2532,7 +2533,8 @@ body.menu-open .mobile-menu {
 .content-text-box p a:hover,
 .hero-content-text a:hover,
 .content-card p a:hover,
-.usage-care-card p a:hover {
+.usage-care-card p a:hover,
+.product-info p a:hover {
   color: var(--dark);
   text-decoration-color: var(--dark);
 }
