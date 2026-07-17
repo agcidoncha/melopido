@@ -793,7 +793,7 @@ body.menu-open .mobile-menu {
 
 
 .product-container {
-  align-items: center;
+  align-items: flex-start;
 }
 
 .product-info h1 {
@@ -3236,10 +3236,10 @@ body.menu-open .mobile-menu {
 }
 
 /* ---------- PRECIO DE PRODUCTO ---------- */
-.product-price {
+.product-info p.product-price {
   margin: 4px 0 20px;
   font-family: 'Playfair Display', serif;
-  font-size: 32px;
+  font-size: 44px;
   font-weight: 500;
   color: var(--accent-deep);
 }
