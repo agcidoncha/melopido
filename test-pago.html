@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>PRUEBA — pago Stripe — no indexar</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="./styles.css?v=10" />
+  <style>
+    .test-wrap {
+      max-width: 640px;
+      margin: 140px auto 60px;
+      padding: 0 20px;
+    }
+
+    .test-banner {
+      background: #fff6ee;
+      border: 1px dashed var(--accent);
+      border-radius: 14px;
+      padding: 14px 20px;
+      font-size: 14px;
+      color: var(--accent-deep);
+      margin-bottom: 30px;
+    }
+
+    .test-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .test-form button {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fffdfb;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .test-form button:hover {
+      border-color: var(--accent-deep);
+      color: var(--accent-deep);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="test-wrap">
+    <div class="test-banner">
+      Página de prueba — no forma parte de la web real, no está enlazada ni indexada. Sirve para comprobar que <code>crear-pago.php</code> funciona antes de conectar el botón real.
+    </div>
+
+    <h1>Probar el pago (talla + color de ejemplo)</h1>
+    <p>Cada botón manda una talla fija con el color "Marfil" de ejemplo. Debería llevarte a la pantalla de pago de Stripe (entorno de prueba). Usa una tarjeta de prueba de Stripe (por ejemplo <code>4242 4242 4242 4242</code>, cualquier fecha futura y cualquier CVC) — no se cobra nada real.</p>
+
+    <div class="test-form">
+      <form method="POST" action="crear-pago.php">
+        <input type="hidden" name="talla" value="75x50">
+        <input type="hidden" name="color" value="Marfil">
+        <button type="submit">Probar 75×50 — 49,99 €</button>
+      </form>
+      <form method="POST" action="crear-pago.php">
+        <input type="hidden" name="talla" value="90x45">
+        <input type="hidden" name="color" value="Marfil">
+        <button type="submit">Probar 90×45 — 59,90 €</button>
+      </form>
+      <form method="POST" action="crear-pago.php">
+        <input type="hidden" name="talla" value="110x45">
+        <input type="hidden" name="color" value="Marfil">
+        <button type="submit">Probar 110×45 — 69,90 €</button>
+      </form>
+      <form method="POST" action="crear-pago.php">
+        <input type="hidden" name="talla" value="120x45">
+        <input type="hidden" name="color" value="Marfil">
+        <button type="submit">Probar 120×45 — 89,90 €</button>
+      </form>
+      <form method="POST" action="crear-pago.php">
+        <input type="hidden" name="talla" value="135x45">
+        <input type="hidden" name="color" value="Marfil">
+        <button type="submit">Probar 135×45 — 109,90 €</button>
+      </form>
+      <form method="POST" action="crear-pago.php">
+        <input type="hidden" name="talla" value="150x45">
+        <input type="hidden" name="color" value="Marfil">
+        <button type="submit">Probar 150×45 — 119,90 €</button>
+      </form>
+      <form method="POST" action="crear-pago.php">
+        <input type="hidden" name="talla" value="talla-inventada-que-no-existe">
+        <input type="hidden" name="color" value="Marfil">
+        <button type="submit">Probar talla inválida (debe dar error, no cobrar)</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
