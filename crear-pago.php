@@ -40,11 +40,34 @@ $datosPeticion = [
         ],
     ],
     'shipping_address_collection' => [
-        'allowed_countries' => ['ES', 'PT', 'FR', 'AD'],
+        // De momento solo España. Para añadir más países en el futuro:
+        // añadir el código aquí y decidir el precio de envío correspondiente.
+        'allowed_countries' => ['ES'],
+    ],
+    'shipping_options' => [
+        [
+            'shipping_rate_data' => [
+                'type' => 'fixed_amount',
+                'fixed_amount' => [
+                    'amount' => 495, // 4,95 € en céntimos
+                    'currency' => 'eur',
+                ],
+                'display_name' => 'Envío estándar',
+            ],
+        ],
     ],
     'metadata' => [
         'talla' => $talla,
         'color' => $color,
+    ],
+    // La metadata de arriba solo queda en la "Sesión de compra". Para que
+    // también aparezca en el Pago (la pantalla que se mira en el día a día),
+    // hay que repetirla aquí para que Stripe la copie al PaymentIntent.
+    'payment_intent_data' => [
+        'metadata' => [
+            'talla' => $talla,
+            'color' => $color,
+        ],
     ],
     'success_url' => $dominio . '/gracias-por-tu-compra.html?session_id={CHECKOUT_SESSION_ID}',
     'cancel_url' => $dominio . '/funda-almohada-seda-' . $talla . '.html',

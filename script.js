@@ -1,3 +1,60 @@
+// AVISO DE COOKIES — Google Analytics solo se carga si el usuario acepta
+const GA_MEASUREMENT_ID = "G-GQ75L6TKYJ";
+const cookieBanner = document.getElementById("cookie-banner");
+const cookieAcceptBtn = document.getElementById("cookie-accept");
+const cookieRejectBtn = document.getElementById("cookie-reject");
+
+function loadGoogleAnalytics() {
+  if (window.gaLoaded) return;
+  window.gaLoaded = true;
+
+  const gaScript = document.createElement("script");
+  gaScript.async = true;
+  gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  document.head.appendChild(gaScript);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  window.gtag = gtag;
+  gtag("js", new Date());
+  gtag("config", GA_MEASUREMENT_ID);
+}
+
+const cookieConsent = localStorage.getItem("melopido-cookies");
+
+if (cookieConsent === "accepted") {
+  loadGoogleAnalytics();
+} else if (cookieConsent === null && cookieBanner) {
+  cookieBanner.classList.add("active");
+}
+
+if (cookieAcceptBtn) {
+  cookieAcceptBtn.addEventListener("click", () => {
+    localStorage.setItem("melopido-cookies", "accepted");
+    cookieBanner.classList.remove("active");
+    loadGoogleAnalytics();
+  });
+}
+
+if (cookieRejectBtn) {
+  cookieRejectBtn.addEventListener("click", () => {
+    localStorage.setItem("melopido-cookies", "rejected");
+    cookieBanner.classList.remove("active");
+  });
+}
+
+const cookiePreferencesBtn = document.getElementById("cookie-preferences-btn");
+
+if (cookiePreferencesBtn) {
+  cookiePreferencesBtn.addEventListener("click", () => {
+    localStorage.removeItem("melopido-cookies");
+    if (cookieBanner) cookieBanner.classList.add("active");
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  });
+}
+
 const menuIcon = document.querySelector(".menu-icon");
 const body = document.body;
 
@@ -312,6 +369,27 @@ function isValidAmazonLink(url) {
 }
 
 if (colors.length && amazonLinkEls.length) {
+  // Si la URL trae ?color=xxx (por ejemplo desde el cuestionario "elige tu
+  // color"), lo usamos como color inicial en vez del que venga marcado por
+  // defecto en el HTML.
+  const colorFromUrl = new URLSearchParams(window.location.search).get(
+    "color",
+  );
+
+  if (colorFromUrl) {
+    // Ojo: cada talla tiene el selector de color duplicado (uno para móvil y
+    // otro para escritorio), así que hay que marcar todas las coincidencias,
+    // no solo la primera.
+    const matchesByUrl = Array.from(colors).filter(
+      (c) => c.dataset.color.toLowerCase() === colorFromUrl.toLowerCase(),
+    );
+
+    if (matchesByUrl.length) {
+      colors.forEach((c) => c.classList.remove("active"));
+      matchesByUrl.forEach((c) => c.classList.add("active"));
+    }
+  }
+
   // desactivar colores sin link
   colors.forEach((color) => {
     const colorName = color.dataset.color;
@@ -410,6 +488,74 @@ if (colors.length && amazonLinkEls.length) {
           prettyNames[selectedColor] || selectedColor;
       }
     });
+  });
+}
+
+// COMPRAR EN MELOPIDO — aviso de confirmación de talla/color antes de pagar
+// Interruptor: mientras Stripe siga en modo prueba, false (el botón lleva a Amazon
+// como siempre). El día que se pase a modo real, cambiar a true y ya usa el pago real.
+const MELOPIDO_CHECKOUT_LIVE = false;
+
+const melopidoBuyEls = document.querySelectorAll(".js-melopido-buy");
+const confirmOverlay = document.getElementById("confirm-overlay");
+const confirmSizeEl = document.getElementById("confirm-size");
+const confirmColorEl = document.getElementById("confirm-color");
+const confirmPayBtn = document.getElementById("confirm-pay-btn");
+const confirmCancelBtn = document.getElementById("confirm-cancel-btn");
+const checkoutForm = document.getElementById("melopido-checkout-form");
+const checkoutTallaInput = document.getElementById("checkout-talla");
+const checkoutColorInput = document.getElementById("checkout-color");
+
+if (
+  melopidoBuyEls.length &&
+  confirmOverlay &&
+  checkoutForm &&
+  checkoutTallaInput &&
+  checkoutColorInput
+) {
+  const openConfirm = () => {
+    const activeColor = document.querySelector(".product-colors span.active");
+    const colorKey = activeColor ? activeColor.dataset.color : "";
+    const colorLabel = prettyNames[colorKey] || colorKey;
+
+    confirmSizeEl.textContent = productSize;
+    confirmColorEl.textContent = colorLabel;
+    checkoutTallaInput.value = productSize;
+    checkoutColorInput.value = colorLabel;
+
+    confirmOverlay.classList.add("active");
+  };
+
+  const closeConfirm = () => {
+    confirmOverlay.classList.remove("active");
+  };
+
+  melopidoBuyEls.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (!MELOPIDO_CHECKOUT_LIVE) {
+        const activeColor = document.querySelector(
+          ".product-colors span.active",
+        );
+        const colorKey = activeColor ? activeColor.dataset.color : "";
+        const fallbackUrl = currentAmazonLinks[colorKey];
+        if (fallbackUrl) window.location.href = fallbackUrl;
+        return;
+      }
+
+      openConfirm();
+    });
+  });
+
+  confirmCancelBtn.addEventListener("click", closeConfirm);
+
+  confirmOverlay.addEventListener("click", (e) => {
+    if (e.target === confirmOverlay) closeConfirm();
+  });
+
+  confirmPayBtn.addEventListener("click", () => {
+    checkoutForm.submit();
   });
 }
 
@@ -557,3 +703,177 @@ desktopToggles.forEach((toggle) => {
     parent.classList.toggle("active");
   });
 });
+
+// CUESTIONARIO "ELIGE TU COLOR" — solo se activa en elige-tu-color.html
+(function () {
+  const card = document.getElementById("quizCard");
+  if (!card) return;
+
+  const QUIZ_COLORS = {
+    marfil:   { name: "Marfil",         hex: "#efe4d4", siteKey: "Marfil",       desc: "Elegante y delicado. Aporta luminosidad y una sensación de pureza y calma." },
+    topo:     { name: "Topo",           hex: "#c6a58f", siteKey: "topo",         desc: "Cálido y sofisticado. Transmite bienestar y armonía a tu espacio." },
+    gris:     { name: "Gris azulado",   hex: "#8996a3", siteKey: "grisazulado",  desc: "Moderno y versátil. Aporta equilibrio y un toque contemporáneo." },
+    granate:  { name: "Granate",        hex: "#7c2634", siteKey: "granate",      desc: "Intenso y elegante. Aporta calidez y profundidad a tu habitación." },
+    pavoreal: { name: "Azul pavo real", hex: "#15748c", siteKey: "azulpavoreal", desc: "Vibrante y lujoso. Aporta energía, confianza y sofisticación." },
+    navy:     { name: "Azul navy",      hex: "#1c2c4c", siteKey: "azulnavy",     desc: "Clásico y atemporal. Transmite tranquilidad y favorece un sueño profundo." },
+    negro:    { name: "Negro",          hex: "#1c1a19", siteKey: "negro",        desc: "Elegante y sofisticado. Aporta un toque de lujo y combina con todo." },
+  };
+
+  const QUIZ_TALLAS = [
+    { slug: "75x50",  label: "Infantil",      sub: "75 × 50 cm" },
+    { slug: "90x45",  label: "Individual",    sub: "90 × 45 cm" },
+    { slug: "110x45", label: "Individual XL", sub: "110 × 45 cm" },
+    { slug: "120x45", label: "Matrimonio",    sub: "120 × 45 cm" },
+    { slug: "135x45", label: "Matrimonio XL", sub: "135 × 45 cm" },
+    { slug: "150x45", label: "Grande",        sub: "150 × 45 cm" },
+  ];
+
+  const QUIZ_QUESTIONS = [
+    {
+      text: "¿De qué color es tu dormitorio?",
+      answers: [
+        { label: "Blancos y tonos muy claros", swatch: "#f2ede4", scores: { marfil: 3, gris: 2, negro: 1 } },
+        { label: "Cálidos: beige, madera, terracota", swatch: "#cba586", scores: { topo: 3, granate: 2, marfil: 1 } },
+        { label: "Fríos: grises o azules", swatch: "#8b98a6", scores: { gris: 3, navy: 3, pavoreal: 1 } },
+        { label: "Oscuro o con mucha personalidad", swatch: "#2b2622", scores: { negro: 3, granate: 2, navy: 1 } },
+      ],
+    },
+    {
+      text: "¿Prefieres algo discreto o con contraste?",
+      answers: [
+        { label: "Discreto, que se funda con la decoración", swatch: "#e3d9c9", scores: { marfil: 3, topo: 3, gris: 2 } },
+        { label: "Con contraste, que destaque", swatch: "#7c2634", scores: { granate: 3, pavoreal: 3, negro: 2 } },
+      ],
+    },
+    {
+      text: "¿Tu estilo es clásico, moderno o elegante?",
+      answers: [
+        { label: "Clásico", swatch: "#1c2c4c", scores: { marfil: 2, topo: 2, navy: 3 } },
+        { label: "Moderno", swatch: "#8b98a6", scores: { gris: 3, pavoreal: 2, negro: 1 } },
+        { label: "Elegante", swatch: "#1c1a19", scores: { granate: 2, negro: 3, navy: 1 } },
+      ],
+    },
+    {
+      text: "¿Quieres un color fácil de combinar?",
+      answers: [
+        { label: "Sí, que combine con todo", swatch: "#efe4d4", scores: { marfil: 3, negro: 3, topo: 2, gris: 1 } },
+        { label: "No me importa, quiero personalidad", swatch: "#15748c", scores: { granate: 2, pavoreal: 3, navy: 1 } },
+      ],
+    },
+  ];
+
+  const QUIZ_TOTAL_STEPS = QUIZ_QUESTIONS.length + 1;
+  const quizScores = {};
+  Object.keys(QUIZ_COLORS).forEach((k) => (quizScores[k] = 0));
+  const quizHistory = [];
+  let quizStep = 0;
+  let quizSelectedTalla = null;
+
+  const quizView = document.getElementById("quizView");
+  const quizResultView = document.getElementById("quizResultView");
+  const quizStepLabel = document.getElementById("quizStepLabel");
+  const quizQuestionText = document.getElementById("quizQuestionText");
+  const quizAnswersList = document.getElementById("quizAnswersList");
+  const quizBackLink = document.getElementById("quizBackLink");
+  const quizThreadFill = document.getElementById("quizThreadFill");
+
+  function quizIsTallaStep() {
+    return quizStep === QUIZ_QUESTIONS.length;
+  }
+
+  function quizRenderQuestion() {
+    quizAnswersList.innerHTML = "";
+    quizStepLabel.textContent = `Pregunta ${quizStep + 1} de ${QUIZ_TOTAL_STEPS}`;
+
+    if (quizIsTallaStep()) {
+      quizQuestionText.textContent = "¿Qué talla buscas?";
+      QUIZ_TALLAS.forEach((t) => {
+        const btn = document.createElement("button");
+        btn.className = "color-quiz-answer-btn";
+        btn.innerHTML = `<span class="color-quiz-talla-text"><span class="color-quiz-talla-label">${t.label}</span><span class="color-quiz-talla-sub">${t.sub}</span></span>`;
+        btn.addEventListener("click", () => quizSelectTalla(t));
+        quizAnswersList.appendChild(btn);
+      });
+    } else {
+      const q = QUIZ_QUESTIONS[quizStep];
+      quizQuestionText.textContent = q.text;
+      q.answers.forEach((a) => {
+        const btn = document.createElement("button");
+        btn.className = "color-quiz-answer-btn";
+        btn.innerHTML = `<span class="color-quiz-swatch-dot" style="background:${a.swatch}"></span><span>${a.label}</span>`;
+        btn.addEventListener("click", () => quizSelectAnswer(a));
+        quizAnswersList.appendChild(btn);
+      });
+    }
+
+    quizQuestionText.classList.remove("color-quiz-fade");
+    void quizQuestionText.offsetWidth;
+    quizQuestionText.classList.add("color-quiz-fade");
+    quizAnswersList.classList.remove("color-quiz-fade");
+    void quizAnswersList.offsetWidth;
+    quizAnswersList.classList.add("color-quiz-fade");
+
+    quizBackLink.hidden = quizStep === 0;
+    quizThreadFill.style.width = `${(quizStep / QUIZ_TOTAL_STEPS) * 100}%`;
+  }
+
+  function quizSelectAnswer(answer) {
+    quizHistory.push(JSON.parse(JSON.stringify(quizScores)));
+    Object.entries(answer.scores).forEach(([color, pts]) => {
+      quizScores[color] = (quizScores[color] || 0) + pts;
+    });
+    quizStep += 1;
+    quizRenderQuestion();
+  }
+
+  function quizSelectTalla(talla) {
+    quizSelectedTalla = talla;
+    quizThreadFill.style.width = "100%";
+    quizShowResult();
+  }
+
+  quizBackLink.addEventListener("click", () => {
+    if (quizStep === 0) return;
+    quizStep -= 1;
+    if (!quizIsTallaStep()) Object.assign(quizScores, quizHistory.pop());
+    quizRenderQuestion();
+  });
+
+  function quizShowResult() {
+    const ranked = Object.entries(quizScores).sort((a, b) => b[1] - a[1]);
+    const primary = QUIZ_COLORS[ranked[0][0]];
+    const alt = QUIZ_COLORS[ranked[1][0]];
+
+    document.getElementById("quizResultSwatch").style.background = primary.hex;
+    document.getElementById("quizResultName").textContent = primary.name;
+    document.getElementById("quizResultCopy").innerHTML =
+      `<strong>${primary.name}</strong> es tu combinación perfecta. ${primary.desc}`;
+    document.getElementById("quizAltSwatch").style.background = alt.hex;
+    document.getElementById("quizAltText").innerHTML =
+      `También te podría gustar <b>${alt.name}</b>: ${alt.desc}`;
+
+    const url = `funda-almohada-seda-${quizSelectedTalla.slug}.html?color=${encodeURIComponent(primary.siteKey)}`;
+    const ctaPrimary = document.getElementById("quizCtaPrimary");
+    ctaPrimary.href = url;
+    ctaPrimary.innerHTML = `Ver funda ${quizSelectedTalla.sub} en ${primary.name} <span class="arrow">›</span>`;
+
+    quizView.classList.add("color-quiz-quiz");
+    quizView.classList.add("hidden");
+    quizResultView.classList.add("active");
+  }
+
+  const quizRestartBtn = document.getElementById("quizRestartBtn");
+  if (quizRestartBtn) {
+    quizRestartBtn.addEventListener("click", () => {
+      Object.keys(quizScores).forEach((k) => (quizScores[k] = 0));
+      quizHistory.length = 0;
+      quizStep = 0;
+      quizSelectedTalla = null;
+      quizResultView.classList.remove("active");
+      quizView.classList.remove("hidden");
+      quizRenderQuestion();
+    });
+  }
+
+  quizRenderQuestion();
+})();
