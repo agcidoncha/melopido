@@ -1,3 +1,6 @@
 # Contiene la clave secreta real de Stripe — nunca se sube a git.
 # Copia stripe-config.example.php como stripe-config.php y rellénala en el servidor.
 stripe-config.php
+
+# Archivos de sistema de macOS, sin contenido útil.
+.DS_Store
