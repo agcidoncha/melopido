@@ -3,10 +3,10 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="Gracias por tu compra en Melopido.">
+  <meta name="description" content="Responde 5 preguntas rápidas y descubre qué color de funda de almohada de seda de morera encaja mejor con tu dormitorio y tu estilo.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gracias por tu compra | Melopido</title>
-  <meta name="robots" content="noindex, nofollow">
+  <title>Elige tu color ideal | Melopido</title>
+  <link rel="canonical" href="https://www.melopido.shop/elige-tu-color.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon-512.png">
   <link rel="stylesheet" href="./styles.css?v=14" />
@@ -260,27 +260,41 @@
   <div class="menu-overlay"></div>
 
   <!-- CONTENIDO -->
-  <section class="content-text legal-page">
-    <div class="content-text-box" style="text-align: center;">
+  <section class="color-quiz-section">
+    <div class="color-quiz-stage">
+      <p class="color-quiz-eyebrow"><span class="mark"></span>Melopido &middot; Encuentra tu color</p>
 
-      <h1>¡Gracias por tu compra!</h1>
+      <div class="color-quiz-card" id="quizCard">
+        <div class="color-quiz-thread-track"><div class="color-quiz-thread-fill" id="quizThreadFill"></div></div>
 
-      <p>
-        Hemos recibido tu pedido correctamente. En breve recibirás un email de confirmación con los detalles de tu compra.
-      </p>
+        <div id="quizView">
+          <p class="color-quiz-step-label" id="quizStepLabel">Pregunta 1 de 5</p>
+          <h1 class="color-quiz-question color-quiz-fade" id="quizQuestionText"></h1>
+          <div class="color-quiz-answers color-quiz-fade" id="quizAnswersList"></div>
+          <button class="color-quiz-back-link" id="quizBackLink" hidden>&larr; Pregunta anterior</button>
+        </div>
 
-      <p>
-        Prepararemos tu funda de almohada de seda con mucho cuidado y te avisaremos en cuanto la enviemos, con tu número de seguimiento.
-      </p>
-
-      <p>
-        Si tienes cualquier duda, escríbenos a <a href="mailto:clientes@melopido.shop">clientes@melopido.shop</a>.
-      </p>
-
-      <div style="margin-top: 30px;">
-        <a href="/" class="btn-round">Volver a la tienda <span class="arrow">›</span></a>
+        <div class="color-quiz-result" id="quizResultView">
+          <div class="color-quiz-result-top color-quiz-fade">
+            <div class="color-quiz-swatch-hero" id="quizResultSwatch"></div>
+            <div>
+              <p class="color-quiz-result-kicker">Tu funda ideal</p>
+              <h1 class="color-quiz-result-name" id="quizResultName"></h1>
+            </div>
+          </div>
+          <p class="color-quiz-result-copy color-quiz-fade" id="quizResultCopy"></p>
+          <div class="color-quiz-alt-block color-quiz-fade">
+            <div class="color-quiz-alt-swatch" id="quizAltSwatch"></div>
+            <div class="color-quiz-alt-text" id="quizAltText"></div>
+          </div>
+          <div class="color-quiz-cta-row color-quiz-fade">
+            <a class="btn-round" id="quizCtaPrimary" href="#">
+              Ver mi funda <span class="arrow">&rsaquo;</span>
+            </a>
+            <button class="color-quiz-restart-btn" id="quizRestartBtn">Volver a empezar</button>
+          </div>
+        </div>
       </div>
-
     </div>
   </section>
 
@@ -360,7 +374,7 @@
     </div>
   </footer>
 
-    <div class="cookie-banner" id="cookie-banner">
+  <div class="cookie-banner" id="cookie-banner">
     <div class="cookie-banner-text">
       <p>Usamos cookies propias y de análisis (Google Analytics) para entender cómo se usa la web. Puedes aceptarlas o rechazarlas. Más info en nuestra <a href="privacidad.html">Política de privacidad</a>.</p>
     </div>

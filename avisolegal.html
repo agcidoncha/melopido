@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://www.melopido.shop/avisolegal.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon-512.png">
-  <link rel="stylesheet" href="./styles.css?v=10" />
+  <link rel="stylesheet" href="./styles.css?v=14" />
 </head>
 
 <body>
@@ -37,11 +37,226 @@
         </button>
       </div>
 
-      <button class="menu-icon" type="button">
+      <button class="menu-icon" type="button" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
     </div>
+
+    <!-- Menú móvil -->
+    <nav class="mobile-menu mobile-app-menu">
+      <div class="mobile-shell">
+        <div class="mobile-panel">
+          <button class="mobile-close" type="button" aria-label="Cerrar menú">✕</button>
+
+          <div class="mobile-top">
+            <div class="mobile-brand-badge">
+              <img src="images/logo/logo.svg" alt="Melopido">
+            </div>
+            <h3 class="mobile-panel-title">¡Bienvenido!</h3>
+            <p class="mobile-panel-sub">Cuida tu piel mientras duermes.</p>
+          </div>
+
+          <div class="mobile-menu-card">
+            <a href="/" class="mobile-menu-row">
+              <span class="mobile-menu-icon">
+                <img src="images/icons/inicio-oscuro-80.webp" alt="Inicio" width="50" height="48">
+              </span>
+              <span class="mobile-menu-label">Inicio</span>
+              <span class="mobile-menu-arrow">›</span>
+            </a>
+
+            <div class="mobile-item">
+              <button class="mobile-menu-row mobile-toggle-row" type="button">
+                <span class="mobile-menu-icon">
+                  <img src="images/icons/fundas-oscura-80.webp" alt="Fundas">
+                </span>
+                <span class="mobile-menu-label">Fundas</span>
+                <span class="mobile-menu-arrow">›</span>
+              </button>
+
+              <div class="mobile-submenu">
+                <a href="instrucciones-de-uso.html">Instrucciones de uso</a>
+                <a href="funda-almohada-seda-75x50.html">● Medida 75 x 50cm</a>
+                <a href="funda-almohada-seda-90x45.html">● Medida 90 x 45cm</a>
+                <a href="funda-almohada-seda-110x45.html">● Medida 110 x 45cm</a>
+                <a href="funda-almohada-seda-120x45.html">● Medida 120 x 45cm</a>
+                <a href="funda-almohada-seda-135x45.html">● Medida 135 x 45cm</a>
+                <a href="funda-almohada-seda-150x45.html">● Medida 150 x 45cm</a>
+              </div>
+            </div>
+
+            <div class="mobile-item">
+              <button class="mobile-menu-row mobile-toggle-row" type="button">
+                <span class="mobile-menu-icon">
+                  <img src="images/icons/beneficios-oscura-80.webp" alt="Beneficios">
+                </span>
+                <span class="mobile-menu-label">Beneficios</span>
+                <span class="mobile-menu-arrow">›</span>
+              </button>
+
+              <div class="mobile-submenu">
+                <a href="beneficios-funda-almohada-seda.html">Beneficios</a>
+                <a href="funda-almohada-seda-arrugas.html">● Cuida tu piel</a>
+                <a href="funda-almohada-seda-acne.html">● Piel con acné</a>
+                <a href="funda-almohada-seda-cabello.html">● Proteje tu cabello</a>
+                <a href="funda-seda-vs-algodon-saten.html">● Seda vs Saten</a>
+                <a href="funda-seda-vs-bambu.html">● Seda vs Bambú</a>
+              </div>
+            </div>
+
+            <a href="colores-funda-almohada-seda.html" class="mobile-menu-row">
+              <span class="mobile-menu-icon">
+                <img src="images/icons/colores-oscura-80.webp" alt="Colores">
+              </span>
+              <span class="mobile-menu-label">Colores</span>
+              <span class="mobile-menu-arrow">›</span>
+            </a>
+
+            <a href="tallas-funda-almohada-seda.html" class="mobile-menu-row">
+              <span class="mobile-menu-icon">
+                <img src="images/icons/medidas-oscura-80.webp" alt="Medidas">
+              </span>
+              <span class="mobile-menu-label">Medidas</span>
+              <span class="mobile-menu-arrow">›</span>
+            </a>
+
+            <a href="preguntas-frecuentes.html" class="mobile-menu-row">
+              <span class="mobile-menu-icon">
+                <img src="images/icons/contacto-oscura.webp" alt="Preguntas frecuentes">
+              </span>
+              <span class="mobile-menu-label">Preguntas frecuentes</span>
+              <span class="mobile-menu-arrow">›</span>
+            </a>
+
+            <a href="https://www.amazon.es/stores/Melopido/page/857CF463-B1A2-4A92-AC5A-22805E40B900"
+              class="mobile-menu-row">
+              <span class="mobile-menu-icon">
+                <img src="images/icons/amazon-oscuro-80.webp" alt="Amazon">
+              </span>
+              <span class="mobile-menu-label">Amazon</span>
+              <span class="mobile-menu-arrow">›</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Fin menú móvil -->
+
   </header>
+
+  <div class="desktop-menu-overlay"></div>
+
+  <aside class="desktop-menu">
+    <div class="desktop-menu-panel">
+      <button class="desktop-menu-close" type="button" aria-label="Cerrar menú desktop">✕</button>
+
+      <div class="desktop-menu-top">
+        <div class="desktop-menu-brand">
+          <img src="images/logo/logo.svg" alt="Melopido">
+        </div>
+        <p class="desktop-menu-kicker">Melopido</p>
+        <h3 class="desktop-menu-title">Menú</h3>
+        <p class="desktop-menu-sub">Acceso rápido a las secciones principales.</p>
+      </div>
+
+      <!-- Menú desktop -->
+      <nav class="desktop-menu-nav">
+
+        <a href="/" class="desktop-menu-row">
+          <span class="desktop-menu-left">
+            <span class="desktop-menu-icon">
+              <img src="images/icons/inicio-oscuro-80.webp" alt="Inicio">
+            </span>
+            <span>Inicio</span>
+          </span>
+        </a>
+
+        <div class="desktop-menu-item">
+          <button class="desktop-menu-row desktop-toggle-row" type="button">
+            <span class="desktop-menu-left">
+              <span class="desktop-menu-icon">
+                <img src="images/icons/fundas-oscura-80.webp" alt="Fundas">
+              </span>
+              <span>Fundas</span>
+            </span>
+            <span class="desktop-menu-arrow">›</span>
+          </button>
+
+          <div class="desktop-submenu">
+            <a href="instrucciones-de-uso.html">Instrucciones de uso</a>
+            <a href="funda-almohada-seda-75x50.html">● Medida 75 x 50 cm</a>
+            <a href="funda-almohada-seda-90x45.html">● Medida 90 x 45 cm</a>
+            <a href="funda-almohada-seda-110x45.html">● Medida 110 x 45 cm</a>
+            <a href="funda-almohada-seda-120x45.html">● Medida 120 x 45 cm</a>
+            <a href="funda-almohada-seda-135x45.html">● Medida 135 x 45 cm</a>
+            <a href="funda-almohada-seda-150x45.html">● Medida 150 x 45 cm</a>
+          </div>
+        </div>
+
+        <div class="desktop-menu-item">
+          <button class="desktop-menu-row desktop-toggle-row" type="button">
+            <span class="desktop-menu-left">
+              <span class="desktop-menu-icon">
+                <img src="images/icons/beneficios-oscura-80.webp" alt="Beneficios">
+              </span>
+              <span>Beneficios</span>
+            </span>
+            <span class="desktop-menu-arrow">›</span>
+          </button>
+
+          <div class="desktop-submenu">
+            <a href="funda-almohada-seda-arrugas.html">● Cuida tu piel</a>
+            <a href="funda-almohada-seda-acne.html">● Piel con acné</a>
+            <a href="funda-almohada-seda-cabello.html">● Proteje tu cabello</a>
+            <a href="funda-seda-vs-algodon-saten.html">● Seda vs Saten</a>
+            <a href="funda-seda-vs-bambu.html">● Seda vs Bambú</a>
+          </div>
+        </div>
+
+        <a href="colores-funda-almohada-seda.html" class="desktop-menu-row">
+          <span class="desktop-menu-left">
+            <span class="desktop-menu-icon">
+              <img src="images/icons/colores-oscura-80.webp" alt="Colores">
+            </span>
+            <span>Colores</span>
+          </span>
+        </a>
+
+        <a href="tallas-funda-almohada-seda.html" class="desktop-menu-row">
+          <span class="desktop-menu-left">
+            <span class="desktop-menu-icon">
+              <img src="images/icons/medidas-oscura-80.webp" alt="Medidas">
+            </span>
+            <span>Medidas</span>
+          </span>
+        </a>
+
+        <a href="preguntas-frecuentes.html" class="desktop-menu-row">
+          <span class="desktop-menu-left">
+            <span class="desktop-menu-icon">
+              <img src="images/icons/contacto-oscura.webp" alt="Preguntas frecuentes">
+            </span>
+            <span>Preguntas frecuentes</span>
+          </span>
+        </a>
+
+        <a href="https://www.amazon.es/stores/Melopido/page/857CF463-B1A2-4A92-AC5A-22805E40B900"
+          class="desktop-menu-row">
+          <span class="desktop-menu-left">
+            <span class="desktop-menu-icon">
+              <img src="images/icons/amazon-oscuro-80.webp" alt="Amazon">
+            </span>
+            <span>Amazon</span>
+          </span>
+        </a>
+
+      </nav>
+      <!-- Fin menú desktop -->
+
+    </div>
+  </aside>
+
+  <div class="menu-overlay"></div>
 
   <!-- CONTENIDO -->
   <section class="content-text legal-page">
@@ -57,8 +272,8 @@ En cumplimiento con el deber de información recogido en la Ley 34/2002 de Servi
 <p>
 Titular: MEPERMO S.L.<br>
 CIF: B75597930<br>
-Domicilio social: [PENDIENTE DE COMPLETAR]<br>
-Registro Mercantil: [PENDIENTE DE COMPLETAR]<br>
+Domicilio social: Avda. Pinos 10, 28670 Villaviciosa de Odón (Madrid)<br>
+Registro Mercantil: M-8339931 IRUS 1000437110558<br>
 Email de contacto: contacto@melopido.shop
 </p>
 
@@ -102,7 +317,7 @@ El tratamiento de los datos personales de los usuarios se regirá por lo estable
 
 <h2>8. Legislación aplicable y jurisdicción</h2>
 <p>
-La relación entre el titular y el usuario se regirá por la normativa española vigente. Para la resolución de cualquier controversia que pudiera surgir, ambas partes se someterán a los juzgados y tribunales de [PENDIENTE DE COMPLETAR].
+La relación entre el titular y el usuario se regirá por la normativa española vigente. Para cualquier controversia derivada de la utilización de esta web o de las compras realizadas, serán competentes los juzgados y tribunales que correspondan conforme a la legislación aplicable y, cuando el comprador tenga la condición de consumidor, los de su domicilio.
 </p>
 
 
@@ -138,9 +353,12 @@ La relación entre el titular y el usuario se regirá por la normativa española
         <a href="beneficios-funda-almohada-seda.html">Beneficios</a>
         <a href="funda-almohada-seda-cabello.html">Cabello</a>
         <a href="funda-almohada-seda-arrugas.html">Arrugas</a>
+        <a href="funda-almohada-seda-acne.html">Acné</a>
         <a href="funda-seda-vs-algodon-saten.html">Seda vs algodón</a>
+        <a href="funda-seda-vs-bambu.html">Seda vs bambú</a>
         <a href="instrucciones-de-uso.html">Instrucciones</a>
         <a href="colores-funda-almohada-seda.html">Colores</a>
+        <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
       </div>
 
       <div class="footer-col">
@@ -182,7 +400,17 @@ La relación entre el titular y el usuario se regirá por la normativa española
     </div>
   </footer>
 
-  <script src="./script.js?v=1"></script>
+    <div class="cookie-banner" id="cookie-banner">
+    <div class="cookie-banner-text">
+      <p>Usamos cookies propias y de análisis (Google Analytics) para entender cómo se usa la web. Puedes aceptarlas o rechazarlas. Más info en nuestra <a href="privacidad.html">Política de privacidad</a>.</p>
+    </div>
+    <div class="cookie-banner-actions">
+      <button type="button" id="cookie-reject" class="cookie-btn-reject">Rechazar</button>
+      <button type="button" id="cookie-accept" class="cookie-btn-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="./script.js?v=8"></script>
 
 </body>
 </html>
