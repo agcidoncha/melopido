@@ -877,3 +877,13 @@ desktopToggles.forEach((toggle) => {
 
   quizRenderQuestion();
 })();
+
+// Al abrir el desplegable "Guías y consejos" en móvil, baja el scroll
+// automáticamente para que se vean los enlaces sin esfuerzo del usuario.
+document.querySelectorAll(".footer-mobile-links").forEach((details) => {
+  details.addEventListener("toggle", () => {
+    if (details.open) {
+      details.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
