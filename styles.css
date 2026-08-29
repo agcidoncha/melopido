@@ -1825,7 +1825,7 @@ body.menu-open .mobile-menu {
   }
 
   body {
-    padding-bottom: 70px;
+    padding-bottom: 100px;
   }
 
 
@@ -1978,6 +1978,10 @@ body.menu-open .mobile-menu {
   .sizes {
     margin-top: 0;
     padding: 0 16px 16px;
+  }
+
+  .content-cta {
+    margin: 16px 0 30px;
   }
 
   .sizes-home {
@@ -3231,6 +3235,75 @@ body.menu-open .mobile-menu {
   left: 0;
 }
 
+/* Bloque "Información" en 4 columnas, por tener más enlaces que el resto */
+.footer-col.footer-col-grid {
+  display: block;
+  align-self: stretch;
+  width: 100%;
+}
+
+.footer-col-grid h4 {
+  margin-bottom: 14px;
+}
+
+.footer-links-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, auto);
+  column-gap: 24px;
+  row-gap: 10px;
+}
+
+/* Enlaces de información plegados, solo visibles en móvil (prueba en home) */
+.footer-mobile-links {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .footer-mobile-links {
+    display: block;
+    margin: 0 16px 20px;
+    padding: 16px 20px;
+    background: #fffdfb;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+
+  .footer-mobile-links summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--dark);
+    list-style: none;
+  }
+
+  .footer-mobile-links summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .footer-mobile-links summary::after {
+    content: "▾";
+    float: right;
+    color: var(--accent-deep);
+  }
+
+  .footer-mobile-links[open] summary::after {
+    content: "▴";
+  }
+
+  .footer-mobile-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .footer-mobile-links-list a {
+    color: #6c6560;
+  }
+}
+
 /* ---------- PÁGINA DE PRODUCTO ---------- */
 .product-container {
   max-width: 1120px;
@@ -3425,7 +3498,7 @@ body.menu-open .mobile-menu {
   }
 
   body.product-page {
-    padding-bottom: 0;
+    padding-bottom: 80px;
   }
 
   .product-sticky-cta {
@@ -3735,6 +3808,12 @@ body.menu-open .mobile-menu {
   padding: 70px 20px;
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .home-quiz-promo {
+    padding: 30px 20px;
+  }
 }
 
 .home-quiz-promo-box {

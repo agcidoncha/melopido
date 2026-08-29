@@ -4,3 +4,6 @@ stripe-config.php
 
 # Archivos de sistema de macOS, sin contenido útil.
 .DS_Store
+
+# Configuración local de previsualización (servidor de pruebas), no forma parte del sitio.
+.claude/
