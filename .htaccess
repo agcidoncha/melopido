@@ -1,3 +1,9 @@
+# El servidor no declaraba el tipo MIME de .webp por defecto, así que
+# ExpiresByType image/webp no podía aplicarse (depende del Content-Type real).
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
+
 RewriteEngine On
 RewriteRule ^index\.html$ / [L,R=301,NC]
 RewriteCond %{HTTP_HOST} ^www\.melopido\.shop [NC]
