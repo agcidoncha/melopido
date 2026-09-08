@@ -8,7 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fundas de almohada de seda | 6 tamaños | Melopido</title>
   <link rel="canonical" href="https://melopido.shop/">
-  <link rel="preload" as="image" href="images/homemobile/1-mobile.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="images/homemobile/1-mobile.webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="images/home/hero-home.jpg" media="(min-width: 769px)" fetchpriority="high">
   <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon-512.png">
   <style>
@@ -428,6 +429,9 @@ body.menu-open .mobile-menu {
 .hero-content-usage {
   margin-bottom: 32px;
 }
+.sizes-home {
+  margin-top: -140px;
+}
 @media (max-width: 768px) {
   body {
     padding-bottom: 100px;
@@ -587,6 +591,9 @@ body.menu-open .mobile-menu {
   }
   .hero-content-usage {
     margin-bottom: 0;
+  }
+  .sizes-home {
+    margin-top: -60px;
   }
   body.menu-open .menu-overlay {
     opacity: 1;
